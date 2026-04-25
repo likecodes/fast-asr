@@ -1,0 +1,20 @@
+# WebSocket 实时音频转录服务 - 最小运行依赖
+
+# 核心
+torch>=1.9.0
+websockets>=10.0
+numpy>=1.21.0
+
+#vad
+torchaudio
+silero-vad
+
+# Whisper（加速编码器，可选使用，代码已兼容缺失时降级）
+faster-whisper>=0.9.0
+
+# 本地 Whisper 实现依赖（vendored simul_whisper）
+tiktoken
+tqdm
+regex
+numba
+

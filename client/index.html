@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASR Demo</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <h1>ASR Demo</h1>
+            <div class="connection-status">
+                <input type="text" id="ws-url" placeholder="ws://localhost:8765" value="ws://localhost:8765">
+                <button id="btn-connect" class="btn btn-primary">Connect</button>
+                <button id="btn-disconnect" class="btn btn-secondary" disabled style="display: none;">Disconnect</button>
+                <span id="status" class="status-dot disconnected"></span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Left Panel: Transcript -->
+            <section class="transcript-panel">
+                <div class="panel-header">
+                    <span>Transcription</span>
+                    <button id="clearBtn" class="btn btn-ghost btn-sm">Clear</button>
+                </div>
+                <div class="transcript-box">
+                    <div id="transcript">
+                        <span id="final-text"></span><span id="caret" class="caret hidden">|</span>
+                        <span id="listening" class="listening hidden">
+                            <span class="dot"></span>
+                            <span class="listening-label">Listening</span>
+                        </span>
+                    </div>
+                    <div class="empty-state" id="emptyState">
+                        <div>Waiting to start recording...</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Panel: Controls & Logs -->
+            <aside class="side-panel">
+                <!-- Record Button -->
+                <div class="record-section">
+                    <button id="btn-record" class="record-btn ready" disabled title="Start Recording">
+                        <div class="record-icon">
+                            <div class="mic-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                                    <line x1="12" y1="19" x2="12" y2="23"/>
+                                    <line x1="8" y1="23" x2="16" y2="23"/>
+                                </svg>
+                            </div>
+                            <div class="record-square"></div>
+                        </div>
+                    </button>
+                    <div class="record-hint" id="recordHint">Click to start</div>
+                </div>
+
+                <!-- Audio Visualizer -->
+                <div id="audioVisualizer" class="audio-visualizer" style="display: none;"></div>
+
+                <!-- Logs -->
+                <div class="logs-section">
+                    <div class="panel-header">
+                        <span>Logs</span>
+                        <button id="clearLogsBtn" class="btn btn-ghost btn-sm">Clear</button>
+                    </div>
+                    <pre id="logs" class="logs-box"></pre>
+                </div>
+            </aside>
+        </main>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="error-message"></div>
+
+        <footer class="footer">
+            Powered by SimulWhisper
+        </footer>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+</html>
