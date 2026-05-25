@@ -1,6 +1,6 @@
 # Live-Stream Whisper
 
-<video src="ASR Demo.mp4" width="800" controls></video>
+<video src="https://github.com/user-attachments/assets/b50ff7ab-6236-4a76-9f14-88c48e989eda" width="800" controls></video>
 
 Real-time audio transcription server using [Simul-Whisper](https://arxiv.org/pdf/2406.10052) — attention-guided streaming Whisper from INTERSPEECH 2024.
 
